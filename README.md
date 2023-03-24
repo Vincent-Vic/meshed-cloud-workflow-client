@@ -11,9 +11,9 @@ mvn clean install org.apache.maven.plugins:maven-deploy-plugin:2.8:deploy -Dskip
 Maven
 ```xml
 <dependency>
-    <groupId>${groupId}</groupId>
+    <groupId>cn.meshed.cloud.workflow</groupId>
     <artifactId>meshed-cloud-workflow-client</artifactId>
-    <version>${version}</version>
+    <version>1.0.0-SNAPSHOT</version>
 </dependency>
 ```
 

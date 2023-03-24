@@ -32,3 +32,8 @@ build/
 .vscode/
 .idea
 .*/.idea
+
+
+### log
+/log
+*.log
