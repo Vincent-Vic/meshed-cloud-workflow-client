@@ -19,7 +19,7 @@ import javax.validation.Valid;
  * @author Vincent Vic
  * @version 1.0
  */
-@RequestMapping("/engine/definition")
+@RequestMapping("/definition")
 public interface DefinitionAdapter {
 
     /**
@@ -39,6 +39,6 @@ public interface DefinitionAdapter {
      * @return {@link Response}
      */
     @Operation(summary = "反转状态")
-    @PostMapping("/inverted/state/{processDefinitionId}")
+    @PostMapping("/inverted/state/{definitionId}")
     Response invertedState(@Parameter(description = "实例ID") @PathVariable("definitionId") String definitionId);
 }

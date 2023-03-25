@@ -1,17 +1,20 @@
 package cn.meshed.cloud.workflow.engine.command;
 
+import com.alibaba.cola.dto.Command;
+import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
-
-import java.io.Serializable;
+import lombok.EqualsAndHashCode;
 
 /**
- * <h1></h1>
+ * <h1>添加附件</h1>
  *
  * @author Vincent Vic
  * @version 1.0
  */
+@EqualsAndHashCode(callSuper = false)
 @Data
-public class AttachmentCmd implements Serializable {
+@Schema(description = "添加附件")
+public class AttachmentCmd extends Command {
 
     /**
      * 用户ID

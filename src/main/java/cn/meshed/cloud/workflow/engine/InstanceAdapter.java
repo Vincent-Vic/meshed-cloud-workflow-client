@@ -23,7 +23,7 @@ import javax.validation.Valid;
  * @author Vincent Vic
  * @version 1.0
  */
-@RequestMapping("/engine/instance")
+@RequestMapping("/instance")
 public interface InstanceAdapter {
 
     /**

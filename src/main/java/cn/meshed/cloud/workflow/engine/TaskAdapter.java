@@ -27,7 +27,7 @@ import java.util.List;
  * @author Vincent Vic
  * @version 1.0
  */
-@RequestMapping("/engine/task")
+@RequestMapping("/task")
 public interface TaskAdapter {
 
     /**
