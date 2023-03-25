@@ -1,10 +1,11 @@
 package cn.meshed.cloud.workflow.engine.command;
 
+import com.alibaba.cola.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
+import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
-import java.io.Serializable;
 import java.util.Map;
 
 /**
@@ -13,9 +14,10 @@ import java.util.Map;
  * @author Vincent Vic
  * @version 1.0
  */
+@EqualsAndHashCode(callSuper = false)
 @Data
 @Schema(description = "启动流程实例")
-public class InitiateInstanceCmd implements Serializable {
+public class InitiateInstanceCmd extends Command {
 
     /**
      * 流程标识
