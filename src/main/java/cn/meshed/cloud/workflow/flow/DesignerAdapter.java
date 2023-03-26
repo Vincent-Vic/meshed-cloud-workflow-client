@@ -19,7 +19,7 @@ import javax.validation.Valid;
  * @author Vincent Vic
  * @version 1.0
  */
-@RequestMapping("/designer")
+@RequestMapping("/flow/designer")
 public interface DesignerAdapter {
 
     /**
