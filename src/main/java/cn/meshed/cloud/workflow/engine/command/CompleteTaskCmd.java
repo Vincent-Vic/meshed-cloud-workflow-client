@@ -5,6 +5,7 @@ import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
+import javax.validation.constraints.NotBlank;
 import java.util.Map;
 
 /**
@@ -19,24 +20,21 @@ import java.util.Map;
 public class CompleteTaskCmd extends Command {
 
     /**
-     * 用户ID
+     * 任务编码
      */
-    private String userId;
-    /**
-     * 编码ID
-     */
+    @Schema(description = "任务编码")
+    @NotBlank(message = "任务编码不能为空")
     private String taskId;
     /**
-     * 实例ID
+     * 携带参数
      */
-    private String processInstanceId;
-    /**
-     * 完成任务携带参数
-     */
+    @Schema(description = "携带参数")
     private Map<String, Object> param;
     /**
-     * 完成携带信息
+     * 携带信息
      */
+    @Schema(description = "携带信息")
+    @NotBlank(message = "携带信息不能为空")
     private String message;
 
 }

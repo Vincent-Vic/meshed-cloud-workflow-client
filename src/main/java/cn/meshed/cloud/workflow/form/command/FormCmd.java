@@ -1,8 +1,6 @@
 package cn.meshed.cloud.workflow.form.command;
 
-import cn.meshed.cloud.workflow.form.enums.FormStatusEnum;
 import com.alibaba.cola.dto.Command;
-import com.alibaba.cola.dto.DTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;

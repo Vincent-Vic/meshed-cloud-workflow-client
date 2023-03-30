@@ -1,6 +1,5 @@
 package cn.meshed.cloud.workflow.flow;
 
-import cn.meshed.cloud.workflow.engine.data.DefinitionDTO;
 import cn.meshed.cloud.workflow.flow.command.DraftCmd;
 import cn.meshed.cloud.workflow.flow.data.DraftDTO;
 import cn.meshed.cloud.workflow.flow.query.DraftPageQry;
@@ -43,7 +42,7 @@ public interface DraftAdapter {
      * @return {@link PageResponse<DraftDTO>}
      */
     @Operation(summary = "流程草稿详情")
-    @GetMapping("/query")
+    @GetMapping("/query/{draftId}")
     SingleResponse<DraftDTO> query(@Parameter(description = "草稿ID") @PathVariable("draftId") String draftId);
 
     /**
@@ -54,7 +53,7 @@ public interface DraftAdapter {
      */
     @Operation(summary = "新增草稿")
     @PostMapping("/save")
-    Response save(@Parameter(description = "草稿参数") @Valid @RequestBody DraftCmd draftCmd);
+    SingleResponse<String> save(@Parameter(description = "草稿参数") @Valid @RequestBody DraftCmd draftCmd);
 
     /**
      * 发布流程

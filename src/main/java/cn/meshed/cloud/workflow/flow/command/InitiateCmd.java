@@ -1,4 +1,4 @@
-package cn.meshed.cloud.workflow.engine.command;
+package cn.meshed.cloud.workflow.flow.command;
 
 import com.alibaba.cola.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
@@ -16,15 +16,15 @@ import java.util.Map;
  */
 @EqualsAndHashCode(callSuper = false)
 @Data
-@Schema(description = "启动流程实例")
-public class InitiateInstanceCmd extends Command {
+@Schema(description = "发起流程")
+public class InitiateCmd extends Command {
 
     /**
      * 流程标识
      */
     @Schema(description = "流程标识")
     @NotBlank(message = "流程标识不能为空")
-    private String key;
+    private String formKey;
     /**
      * 携带参数
      */

@@ -41,6 +41,12 @@ public class DefinitionDTO extends DTO {
     private String key;
 
     /**
+     * 主表单标识 （开始节点挂载）
+     */
+    @Schema(description = "主表单标识")
+    private String formKey;
+
+    /**
      * 详情
      */
     @Schema(description = "详情")
@@ -69,5 +75,11 @@ public class DefinitionDTO extends DTO {
      */
     @Schema(description = "是否挂起")
     private Boolean isSuspended;
+
+    /**
+     * 归属系统
+     */
+    @Schema(description = "归属系统 - 租户概念")
+    private String tenantId;
 
 }

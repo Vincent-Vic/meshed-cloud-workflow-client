@@ -5,11 +5,13 @@ import cn.meshed.cloud.workflow.engine.command.CommentCmd;
 import cn.meshed.cloud.workflow.engine.command.CompleteTaskCmd;
 import cn.meshed.cloud.workflow.engine.data.AttachmentDTO;
 import cn.meshed.cloud.workflow.engine.data.CommentDTO;
+import cn.meshed.cloud.workflow.engine.data.TaskActivityDTO;
 import cn.meshed.cloud.workflow.engine.data.TaskDTO;
+import cn.meshed.cloud.workflow.engine.query.TaskActivityQry;
 import cn.meshed.cloud.workflow.engine.query.TaskPageQry;
+import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
-import com.alibaba.cola.dto.SingleResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -19,7 +21,6 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 
 import javax.validation.Valid;
-import java.util.List;
 
 /**
  * <h1>任务适配器</h1>
@@ -34,11 +35,21 @@ public interface TaskAdapter {
      * 任务列表
      *
      * @param taskPageQry 任务分页查询参数
-     * @return {@link PageResponse < DefinitionDTO >>}
+     * @return {@link PageResponse < DefinitionDTO >}
      */
     @Operation(summary = "任务列表")
     @GetMapping("/list")
     PageResponse<TaskDTO> list(@Parameter(description = "任务分页查询参数") @Valid TaskPageQry taskPageQry);
+
+    /**
+     * 任务历史活动节点列表
+     *
+     * @param taskActivityQry 任务活动查询
+     * @return {@link PageResponse < TaskActivityDTO >}
+     */
+    @Operation(summary = "任务历史活动节点列表")
+    @GetMapping("/activity/record/list")
+    MultiResponse<TaskActivityDTO> activityList(@Parameter(description = "任务活动查询") TaskActivityQry taskActivityQry);
 
     /**
      * 完成任务
@@ -64,21 +75,21 @@ public interface TaskAdapter {
      * 根据任务ID查询评论
      *
      * @param taskId 任务ID
-     * @return {@link SingleResponse<List <CommentDTO>>}
+     * @return {@link MultiResponse <CommentDTO>}
      */
     @Operation(summary = "根据任务ID查询评论")
     @GetMapping("get/task/comments/{taskId}")
-    SingleResponse<List<CommentDTO>> getTaskComments(@Parameter(description = "任务ID") @PathVariable("taskId")String taskId);
+    MultiResponse<CommentDTO> getTaskComments(@Parameter(description = "任务ID") @PathVariable("taskId") String taskId);
 
     /**
      * 根据任务ID查询评论
      *
      * @param instanceId 实例ID
-     * @return {@link SingleResponse<List<CommentDTO>>}
+     * @return {@link MultiResponse<CommentDTO>>}
      */
     @Operation(summary = "")
     @GetMapping("get/instance/comments/{instanceId}")
-    SingleResponse<List<CommentDTO>> getInstanceComments(@Parameter(description = "实例ID") @PathVariable("instanceId")String instanceId);
+    MultiResponse<CommentDTO> getInstanceComments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
 
     /**
      * 删除评论
@@ -88,7 +99,7 @@ public interface TaskAdapter {
      */
     @Operation(summary = "删除评论")
     @PostMapping("/del/comment/{commentId}")
-    Response delComment(@Parameter(description = "评论ID") @PathVariable("commentId")String commentId);
+    Response delComment(@Parameter(description = "评论ID") @PathVariable("commentId") String commentId);
 
     /**
      * 添加附件
@@ -104,24 +115,25 @@ public interface TaskAdapter {
      * 获取任务附件
      *
      * @param taskId 任务ID
-     * @return {@link SingleResponse<List<AttachmentDTO>>}
+     * @return {@link MultiResponse<AttachmentDTO>}
      */
     @Operation(summary = "获取任务附件")
     @GetMapping("get/task/attachments/{taskId}")
-    SingleResponse<List<AttachmentDTO>> getTaskAttachments(@Parameter(description = "任务ID") @PathVariable("taskId") String taskId);
+    MultiResponse<AttachmentDTO> getTaskAttachments(@Parameter(description = "任务ID") @PathVariable("taskId") String taskId);
 
     /**
      * 获取实例附件
      *
      * @param instanceId 实例ID
-     * @return {@link SingleResponse<List<AttachmentDTO>>}
+     * @return {@link MultiResponse<AttachmentDTO>}
      */
     @Operation(summary = "获取实例附件")
     @GetMapping("get/instance/attachments/{instanceId}")
-    SingleResponse<List<AttachmentDTO>> getInstanceAttachments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
+    MultiResponse<AttachmentDTO> getInstanceAttachments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
 
     /**
      * 删除附件
+     *
      * @param attachmentId 附件ID
      * @return {@link Response}
      */
