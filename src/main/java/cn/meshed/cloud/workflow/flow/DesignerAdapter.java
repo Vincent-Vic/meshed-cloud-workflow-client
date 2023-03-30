@@ -29,8 +29,8 @@ public interface DesignerAdapter {
      * @return {@link SingleResponse<String>}
      */
     @Operation(summary = "流程设计数据")
-    @GetMapping("/designer/{flowId}")
-    SingleResponse<String> getDesigner(@Parameter(description = "流程ID") @PathVariable("definitionId") String flowId);
+    @GetMapping("/{flowId}")
+    SingleResponse<String> getDesigner(@Parameter(description = "流程ID") @PathVariable("flowId") String flowId);
 
     /**
      * 保存流程设计

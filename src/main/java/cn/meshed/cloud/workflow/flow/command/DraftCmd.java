@@ -48,23 +48,17 @@ public class DraftCmd extends Command {
     private String name;
 
     /**
-     * 名称
+     * 归属系统
      */
-    @Schema(description = "表单类型")
-    @NotEmpty(message = "表单类型不能为空")
-    private FormTypeEnum formType;
+    @Schema(description = "归属系统")
+    @NotBlank(message = "归属系统不能为空")
+    private String tenantId;
 
     /**
      * 表单ID
      */
     @Schema(description = "表单ID（表单类型时必须存在）")
     private String formId;
-
-    /**
-     * 表单Url
-     */
-    @Schema(description = "表单HTTP（iframe类型时必须存在）")
-    private String formUrl;
 
     /**
      * 详情

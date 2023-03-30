@@ -41,4 +41,14 @@ public interface DefinitionAdapter {
     @Operation(summary = "反转状态")
     @PostMapping("/inverted/state/{definitionId}")
     Response invertedState(@Parameter(description = "实例ID") @PathVariable("definitionId") String definitionId);
+
+    /**
+     * 流程定义拷贝
+     *
+     * @param definitionId 流程定义ID
+     * @return {@link Response}
+     */
+    @Operation(summary = "流程定义拷贝")
+    @PostMapping("/copy/{definitionId}")
+    Response copy(@Parameter(description = "流程定义ID") @PathVariable("definitionId") String definitionId);
 }
