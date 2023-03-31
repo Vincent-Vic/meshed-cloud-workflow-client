@@ -26,6 +26,12 @@ public class CompleteTaskCmd extends Command {
     @NotBlank(message = "任务编码不能为空")
     private String taskId;
     /**
+     * 实例编码
+     */
+    @Schema(description = "实例编码")
+    @NotBlank(message = "实例编码不能为空")
+    private String instanceId;
+    /**
      * 携带参数
      */
     @Schema(description = "携带参数")

@@ -43,7 +43,7 @@ public class TaskPageQry extends PageQuery {
     private String processInstanceId;
     /** 是否完成 */
     @Schema(description = "是否完成")
-    private Boolean isFinished;
+    private Boolean finished;
     /** 在这个时间前完成 */
     @Schema(description = "在这个时间前完成")
     private Date completedBefore;

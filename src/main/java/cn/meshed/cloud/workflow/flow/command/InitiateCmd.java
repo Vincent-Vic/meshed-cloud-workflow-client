@@ -20,11 +20,22 @@ import java.util.Map;
 public class InitiateCmd extends Command {
 
     /**
+     * 发起系统
+     */
+    @Schema(description = "发起系统")
+    @NotBlank(message = "发起系统不能为空")
+    private String tenantId;
+    /**
+     * 流程定义编码
+     */
+    @Schema(description = "流程定义编码")
+    private String definitionId;
+
+    /**
      * 流程标识
      */
     @Schema(description = "流程标识")
-    @NotBlank(message = "流程标识不能为空")
-    private String formKey;
+    private String key;
     /**
      * 携带参数
      */

@@ -74,7 +74,7 @@ public class DefinitionDTO extends DTO {
      * 是否挂起
      */
     @Schema(description = "是否挂起")
-    private Boolean isSuspended;
+    private Boolean suspended;
 
     /**
      * 归属系统

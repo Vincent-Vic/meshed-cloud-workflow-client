@@ -17,21 +17,9 @@ import lombok.EqualsAndHashCode;
 public class CommentCmd extends Command {
 
     /**
-     * 用户id
-     */
-    private String userId;
-    /**
-     * 任务id
-     */
-    private String taskId;
-    /**
      * 实例id
      */
-    private String processInstanceId;
-    /**
-     * 评论类型
-     */
-    private String type;
+    private String instanceId;
     /**
      * 评论信息
      */

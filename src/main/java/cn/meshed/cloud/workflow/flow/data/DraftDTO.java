@@ -41,27 +41,23 @@ public class DraftDTO extends DTO {
     @Schema(description = "流程名称")
     private String name;
 
-    /**
-     * 名称
-     */
-    @Schema(description = "表单类型")
-    private FormTypeEnum formType;
 
     /**
-     * 表单ID
+     * 版本
      */
-    @Schema(description = "表单ID（表单类型时必须存在）")
-    private String formId;
+    @Schema(description = "版本")
+    private Integer version;
 
-    /**
-     * 表单Url
-     */
-    @Schema(description = "表单HTTP（iframe类型时必须存在）")
-    private String formUrl;
 
     /**
      * 详情
      */
     @Schema(description = "详情")
     private String description;
+
+    /**
+     * 归属系统
+     */
+    @Schema(description = "归属系统")
+    private String tenantId;
 }

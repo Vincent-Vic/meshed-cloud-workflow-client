@@ -14,20 +14,14 @@ import lombok.EqualsAndHashCode;
  */
 @EqualsAndHashCode(callSuper = false)
 @Data
-@Schema(description = "")
+@Schema(description = "表单分页查询")
 public class FormPageQry extends PageQuery {
 
     /**
-     * 表单key
+     * 关键字
      */
-    @Schema(description = "")
-    private String key;
-
-    /**
-     * 表单名称
-     */
-    @Schema(description = "表单名称")
-    private String name;
+    @Schema(description = "关键字")
+    private String keyword;
 
     /**
      * 表单状态

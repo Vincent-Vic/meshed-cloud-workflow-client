@@ -8,6 +8,7 @@ import com.alibaba.cola.dto.Response;
 import com.alibaba.cola.dto.SingleResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
@@ -64,5 +65,15 @@ public interface DraftAdapter {
     @Operation(summary = "发布流程")
     @PostMapping("/publish/{draftId}")
     Response publish(@Parameter(description = "草稿ID") @PathVariable("draftId") String draftId);
+
+    /**
+     * 发布流程
+     *
+     * @param draftId 草稿ID
+     * @return {@link Response}
+     */
+    @Operation(summary = "发布流程")
+    @DeleteMapping("/delete/{draftId}")
+    Response delete(@Parameter(description = "草稿ID") @PathVariable("draftId") String draftId);
 
 }

@@ -52,14 +52,24 @@ public interface TaskAdapter {
     MultiResponse<TaskActivityDTO> activityList(@Parameter(description = "任务活动查询") TaskActivityQry taskActivityQry);
 
     /**
-     * 完成任务
+     * 审批同意
      *
      * @param completeTaskCmd 完成参数
      * @return {@link Response}
      */
-    @Operation(summary = "完成任务")
-    @PostMapping("/complete/task")
-    Response completeTask(@Parameter(description = "销毁实例参数") @RequestBody @Valid CompleteTaskCmd completeTaskCmd);
+    @Operation(summary = "审批同意")
+    @PostMapping("/agree")
+    Response agree(@Parameter(description = "销毁实例参数") @RequestBody @Valid CompleteTaskCmd completeTaskCmd);
+
+    /**
+     * 审批拒绝
+     *
+     * @param completeTaskCmd 完成参数
+     * @return {@link Response}
+     */
+    @Operation(summary = "审批拒绝")
+    @PostMapping("/refuse")
+    Response refuse(@Parameter(description = "销毁实例参数") @RequestBody @Valid CompleteTaskCmd completeTaskCmd);
 
     /**
      * 添加评论
@@ -68,18 +78,8 @@ public interface TaskAdapter {
      * @return {@link Response}
      */
     @Operation(summary = "添加评论")
-    @PostMapping("/add/comment")
-    Response addComment(@Parameter(description = "销毁实例参数") @RequestBody @Valid CommentCmd commentCmd);
-
-    /**
-     * 根据任务ID查询评论
-     *
-     * @param taskId 任务ID
-     * @return {@link MultiResponse <CommentDTO>}
-     */
-    @Operation(summary = "根据任务ID查询评论")
-    @GetMapping("get/task/comments/{taskId}")
-    MultiResponse<CommentDTO> getTaskComments(@Parameter(description = "任务ID") @PathVariable("taskId") String taskId);
+    @PostMapping("/make/comment")
+    Response makeComment(@Parameter(description = "销毁实例参数") @RequestBody @Valid CommentCmd commentCmd);
 
     /**
      * 根据任务ID查询评论
@@ -88,8 +88,8 @@ public interface TaskAdapter {
      * @return {@link MultiResponse<CommentDTO>>}
      */
     @Operation(summary = "")
-    @GetMapping("get/instance/comments/{instanceId}")
-    MultiResponse<CommentDTO> getInstanceComments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
+    @GetMapping("get/comments/{instanceId}")
+    MultiResponse<CommentDTO> getComments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
 
     /**
      * 删除评论
@@ -112,24 +112,14 @@ public interface TaskAdapter {
     Response addAttachment(@Parameter(description = "销毁实例参数") @RequestBody @Valid AttachmentCmd attachmentCmd);
 
     /**
-     * 获取任务附件
-     *
-     * @param taskId 任务ID
-     * @return {@link MultiResponse<AttachmentDTO>}
-     */
-    @Operation(summary = "获取任务附件")
-    @GetMapping("get/task/attachments/{taskId}")
-    MultiResponse<AttachmentDTO> getTaskAttachments(@Parameter(description = "任务ID") @PathVariable("taskId") String taskId);
-
-    /**
      * 获取实例附件
      *
      * @param instanceId 实例ID
      * @return {@link MultiResponse<AttachmentDTO>}
      */
     @Operation(summary = "获取实例附件")
-    @GetMapping("get/instance/attachments/{instanceId}")
-    MultiResponse<AttachmentDTO> getInstanceAttachments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
+    @GetMapping("get/attachments/{instanceId}")
+    MultiResponse<AttachmentDTO> getAttachments(@Parameter(description = "实例ID") @PathVariable("instanceId") String instanceId);
 
     /**
      * 删除附件
