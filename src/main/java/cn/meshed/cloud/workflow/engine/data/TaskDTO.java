@@ -53,7 +53,7 @@ public class TaskDTO extends DTO {
      * 流程实例编码
      */
     @Schema(description = "流程实例编码")
-    private String processInstanceId;
+    private String instanceId;
 
     /**
      * 执行编码
@@ -62,16 +62,10 @@ public class TaskDTO extends DTO {
     private String executionId;
 
     /**
-     * 任务定义编码
-     */
-    @Schema(description = "任务定义编码")
-    private String taskDefinitionId;
-
-    /**
      * 流程定义编码
      */
     @Schema(description = "流程定义编码")
-    private String processDefinitionId;
+    private String definitionId;
 
     /**
      * 发起时间
@@ -80,22 +74,10 @@ public class TaskDTO extends DTO {
     private Date createTime;
 
     /**
-     * 任务定义key
-     */
-    @Schema(description = "任务定义key")
-    private String taskDefinitionKey;
-
-    /**
      * 过期时间
      */
     @Schema(description = "过期时间")
     private Date dueDate;
-
-    /**
-     * 分类
-     */
-    @Schema(description = "分类")
-    private String category;
 
     /**
      * 表单key
@@ -107,13 +89,13 @@ public class TaskDTO extends DTO {
      * 任务局部参数
      */
     @Schema(description = "任务局部参数")
-    private Map<String, Object> taskLocalVariables;
+    private Map<String, Object> localVariables;
 
     /**
      * 过程参数
      */
     @Schema(description = "过程参数")
-    private Map<String, Object> processVariables;
+    private Map<String, Object> variables;
 
     /**
      * 运行时间
