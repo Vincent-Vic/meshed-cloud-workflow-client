@@ -32,6 +32,12 @@ public class TaskDTO extends DTO {
     private String name;
 
     /**
+     * 流程名称
+     */
+    @Schema(description = "流程名称")
+    private String definitionName;
+
+    /**
      * 描述
      */
     @Schema(description = "描述")
@@ -48,6 +54,12 @@ public class TaskDTO extends DTO {
      */
     @Schema(description = "审批人")
     private String assignee;
+
+    /**
+     * 发起人
+     */
+    @Schema(description = "发起人")
+    private String initiator;
 
     /**
      * 流程实例编码
