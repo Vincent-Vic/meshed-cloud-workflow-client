@@ -32,6 +32,12 @@ public class TaskDTO extends DTO {
     private String name;
 
     /**
+     * 流程名称
+     */
+    @Schema(description = "流程名称")
+    private String definitionName;
+
+    /**
      * 描述
      */
     @Schema(description = "描述")
@@ -48,6 +54,12 @@ public class TaskDTO extends DTO {
      */
     @Schema(description = "审批人")
     private String assignee;
+
+    /**
+     * 发起人
+     */
+    @Schema(description = "发起人")
+    private String initiator;
 
     /**
      * 流程实例编码
@@ -72,6 +84,11 @@ public class TaskDTO extends DTO {
      */
     @Schema(description = "发起时间")
     private Date createTime;
+    /**
+     * 发起时间
+     */
+    @Schema(description = "结束时间")
+    private Date endTime;
 
     /**
      * 过期时间
@@ -101,5 +118,5 @@ public class TaskDTO extends DTO {
      * 运行时间
      */
     @Schema(description = "运行时间")
-    private Date claimTime;
+    private Long claimTime;
 }

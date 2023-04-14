@@ -19,9 +19,11 @@ public class CommentCmd extends Command {
     /**
      * 实例id
      */
+    @Schema(description = "实例id")
     private String instanceId;
     /**
      * 评论信息
      */
+    @Schema(description = "评论信息")
     private String message;
 }

@@ -9,9 +9,11 @@ import cn.meshed.cloud.workflow.engine.data.TaskActivityDTO;
 import cn.meshed.cloud.workflow.engine.data.TaskDTO;
 import cn.meshed.cloud.workflow.engine.query.TaskActivityQry;
 import cn.meshed.cloud.workflow.engine.query.TaskPageQry;
+import cn.meshed.cloud.workflow.engine.query.TaskQry;
 import com.alibaba.cola.dto.MultiResponse;
 import com.alibaba.cola.dto.PageResponse;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
 import io.swagger.v3.oas.annotations.Operation;
 import io.swagger.v3.oas.annotations.Parameter;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -40,6 +42,16 @@ public interface TaskAdapter {
     @Operation(summary = "任务列表")
     @GetMapping("/list")
     PageResponse<TaskDTO> list(@Parameter(description = "任务分页查询参数") @Valid TaskPageQry taskPageQry);
+
+    /**
+     * 任务信息
+     *
+     * @param taskQry 任务查询参数
+     * @return {@link SingleResponse < DefinitionDTO >}
+     */
+    @Operation(summary = "任务信息")
+    @GetMapping("/query")
+    SingleResponse<TaskDTO> query(@Parameter(description = "任务查询参数") @Valid TaskQry taskQry);
 
     /**
      * 任务历史活动节点列表

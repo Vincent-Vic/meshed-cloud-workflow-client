@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import java.util.Date;
+import java.util.Set;
 
 /**
  * <h1>任务分页查询</h1>
@@ -29,6 +30,9 @@ public class TaskPageQry extends PageQuery {
     /** 分配人 */
     @Schema(description = "分配人")
     private String assignee;
+    /** 候选组 */
+    @Schema(description = "候选组")
+    private Set<String> candidateGroup;
     /** 分类 */
     @Schema(description = "分类")
     private String category;
