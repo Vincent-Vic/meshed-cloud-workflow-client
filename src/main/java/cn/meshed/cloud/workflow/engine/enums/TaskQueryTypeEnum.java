@@ -1,5 +1,6 @@
 package cn.meshed.cloud.workflow.engine.enums;
 
+import com.baomidou.mybatisplus.annotation.EnumValue;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
@@ -19,17 +20,18 @@ public enum TaskQueryTypeEnum {
     TODO(1, "TODO"),
 
     /**
-     * 已办任务
+     * 历史任务
      */
-    COMPLETE(2, "COMPLETE"),
+    HISTORY(2, "HISTORY"),
 
     /**
      * 发起记录
      */
-    MY_INITIATION(2, "MY_INITIATION"),
+    MY(2, "MY"),
 
     ;
 
+    @EnumValue
     private final int value;
-    private final String key;
+    private final String ext;
 }

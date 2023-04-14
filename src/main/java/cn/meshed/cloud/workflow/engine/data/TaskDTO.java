@@ -84,6 +84,11 @@ public class TaskDTO extends DTO {
      */
     @Schema(description = "发起时间")
     private Date createTime;
+    /**
+     * 发起时间
+     */
+    @Schema(description = "结束时间")
+    private Date endTime;
 
     /**
      * 过期时间
@@ -113,5 +118,5 @@ public class TaskDTO extends DTO {
      * 运行时间
      */
     @Schema(description = "运行时间")
-    private Date claimTime;
+    private Long claimTime;
 }

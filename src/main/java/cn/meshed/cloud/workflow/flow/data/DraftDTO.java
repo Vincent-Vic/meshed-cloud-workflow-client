@@ -1,6 +1,5 @@
 package cn.meshed.cloud.workflow.flow.data;
 
-import cn.meshed.cloud.workflow.flow.enums.FormTypeEnum;
 import com.alibaba.cola.dto.DTO;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;

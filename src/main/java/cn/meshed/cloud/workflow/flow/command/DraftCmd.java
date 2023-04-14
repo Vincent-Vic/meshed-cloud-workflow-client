@@ -1,13 +1,11 @@
 package cn.meshed.cloud.workflow.flow.command;
 
-import cn.meshed.cloud.workflow.flow.enums.FormTypeEnum;
 import com.alibaba.cola.dto.Command;
 import io.swagger.v3.oas.annotations.media.Schema;
 import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotEmpty;
 
 /**
  * <h1>草稿保存模型</h1>
