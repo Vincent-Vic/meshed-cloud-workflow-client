@@ -2,6 +2,9 @@ package cn.meshed.cloud.workflow.flow;
 
 import cn.meshed.cloud.workflow.flow.command.InitiateCmd;
 import com.alibaba.cola.dto.Response;
+import com.alibaba.cola.dto.SingleResponse;
+
+import java.io.Serializable;
 
 /**
  * <h1>设计器RPC</h1>
@@ -9,7 +12,9 @@ import com.alibaba.cola.dto.Response;
  * @author Vincent Vic
  * @version 1.0
  */
-public interface FlowRpc {
+public interface FlowRpc extends Serializable {
+
+    long serialVersionUID = 1L;
 
     /**
      * 发起流程
@@ -17,5 +22,5 @@ public interface FlowRpc {
      * @param initiateCmd 流程设计数据
      * @return {@link Response}
      */
-    Response initiate(InitiateCmd initiateCmd);
+    SingleResponse<String> initiate(InitiateCmd initiateCmd);
 }
